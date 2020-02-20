@@ -1,0 +1,61 @@
+.lesson-priority {
+  display: flex;
+  flex-direction: column;
+  .lesson-priority__lesson {
+    height: 64px;
+    padding: 0px 0 0px 12px;
+    border-top: 1px solid #e2e2e2;
+    display: flex;
+    align-items: center;
+    .lesson-priority__arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 12px 0 12px;
+      width: 64px;
+      &:after {
+        content: attr(title);
+        text-transform: capitalize;
+        font-size: 16px;
+        color: #212121;
+      }
+      &:before {
+          font-size: 24px;
+      }
+      &[priority="high"] {
+        &:before {
+          content: "↑";
+          color: red;
+        }
+      }
+      &[priority="medium"] {
+        &:before {
+          content: "↑";
+          color: yellow;
+        }
+      }
+      &[priority="low"] {
+        &:before {
+          content: "↓";
+          color: green;
+        }
+      }
+    }
+    .lesson-priority__name {
+      font-size: 30px;
+      letter-spacing: 0;
+      color: #212121;
+    }
+    .lesson-priority__go-button {
+      border: 1px solid #007fa8;
+      border-radius: 7px;
+      margin-left: auto;
+      width: 120px;
+      height: 31px;
+      background: transparent;
+      color: #007FA8;
+      font-size: 16px;
+      font-weight: bolder;
+    }
+  }
+}

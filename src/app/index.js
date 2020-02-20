@@ -3,6 +3,8 @@ import React from 'react';
 import PopoverOverlay from './components/PopupOverlay';
 import ContentItem from './components/PopupOverlay/ContentItem';
 
+import LessonPriorityRanking from './components/LessonPriorityRanking';
+
 function RenderPopover() {
     return <PopoverOverlay title="Welcome to your Adaptive Practice Assessment">
         <ContentItem title="Why should I take this kind of assessment 1 ?">
@@ -22,4 +24,22 @@ function RenderPopover() {
     </PopoverOverlay>
 }
 
-ReactDOM.render(<RenderPopover />, document.getElementById('root'));
+function RenderLessonRankings() {
+    const lessons = [
+        {
+            name: 'Consolidated Financial Statements',
+            priority: 'high',
+        },
+        {
+            name: ' International Financial Reporting Standards (IFRS)',
+            priority: 'medium',
+        },
+        {
+            name: 'Financial Accounting Standards Board (FASB)',
+            priority: 'low',
+        }
+    ];
+    return <LessonPriorityRanking lessons={lessons}/>
+}
+
+ReactDOM.render(<RenderLessonRankings />, document.getElementById('root'));

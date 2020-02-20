@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/PopupOverlay.scss';
+import './styles.scss';
 
 class PopupOverlay extends React.PureComponent {
 
@@ -67,7 +67,7 @@ class PopupOverlay extends React.PureComponent {
         const { children = [], onClose, title } = this.props;
         const stepsCount = children.length;
         const { currentStep } = this.state;
-        return <div className="popup-overlay__container">
+        return <div className="popup-overlay">
             <div className="popup-overlay__left-bar">
                 {this.renderCloseBtn(onClose)}
                 {this.renderLeftNavigationArrow(currentStep, this.goPrevious)}

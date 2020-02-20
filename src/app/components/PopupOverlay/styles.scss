@@ -1,4 +1,4 @@
-.popup-overlay__container {
+.popup-overlay {
   width: 900px;
   height: 600px;
   background: #fcfcfc 0% 0% no-repeat padding-box;
@@ -24,8 +24,8 @@
     }
     .popup-overlay__nav-arrow-left {
         display: block;
-        border-right: 2px solid black;
-        border-bottom: 2px solid black;
+        border-right: 2px solid #707070;
+        border-bottom: 2px solid #707070;
         height: 50px;
         width: 50px;
         transform: rotate(135deg);
@@ -105,8 +105,8 @@
     }
     .popup-overlay__nav-arrow-right {
         display: block;
-        border-right: 2px solid black;
-        border-bottom: 2px solid black;
+        border-right: 2px solid #707070;
+        border-bottom: 2px solid #707070;
         height: 50px;
         width: 50px;
         transform: rotate(-45deg);
