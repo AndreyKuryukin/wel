@@ -27,7 +27,9 @@ class GameField extends React.PureComponent {
             const sound = _.get(this.props.receive, 'sound');
             if (sound && !this.props.button) {
                 if (sound !== this.state.sound) {
-                    Player.play(sound);
+                    Player.play(sound, () => {
+                        this.setState({sound: null});
+                    });
                     this.setState({sound});
                 } else {
                     Player.stopPlay();
