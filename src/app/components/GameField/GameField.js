@@ -17,9 +17,10 @@ class GameField extends React.PureComponent {
     componentDidUpdate(prevProps) {
         if (prevProps.receive !== this.props.receive) {
             const speed = _.get(this.props.receive, 'rotate');
-            if (speed) {
+            if (speed && !this.state.rotating) {
                 if (this.props.button) {
                     this.rotate(speed);
+                    this.setState({rotating: true});
                 } else {
                     this.startRotate(speed);
                 }
@@ -38,14 +39,14 @@ class GameField extends React.PureComponent {
             }
         }
     }
-
    
     startRotate = (speed = randomizeSpeed()) => {
-        if (this.props.button) {
+        if (this.props.button && !this.state.rotating) {
             this.props.send({ rotate: speed })
-        } else {
+        } else if (!this.state.rotating){
             Player.play();
             this.rotate(speed);
+            this.setState({rotating: true});
         }
     }
 
@@ -54,7 +55,8 @@ class GameField extends React.PureComponent {
         if (!this.props.button) {
             Player.stopPlay();
             this.setState({sound: null})
-        }
+        } 
+        this.setState({rotating: false})
     }
 
     rotate = (speed = 100) => {
