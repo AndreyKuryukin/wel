@@ -1,0 +1,51 @@
+.control-pad {
+  display: flex;
+  flex-direction: column;
+  .general-controls {
+    display: flex;
+    flex-direction: column;
+    & > button {
+        height: 120px;
+        margin: 32px;
+        font-size: 32px;
+        background: #f50adf;
+        border: 0;
+        color: #fff;
+        font-weight: bold;
+    }
+  }
+  .sound-controls {
+    & > button {
+        color: #fff;
+        height: 120px;
+        margin: 24px;
+        flex: 1;
+        background: #30a3fb;
+        border: 0;
+        min-width: 200px;
+        font-size: 32px;
+        padding: 40px;
+    }
+  }
+  .score-control {
+    display: flex;
+      & > input {
+        margin: 24px;
+        font-size: 64px;
+        width: 100px;
+        text-align: center;
+        border: 3px solid #244ee2;
+      }
+      & > button {
+        color: #fff;
+        height: 120px;
+        margin: 24px;
+        flex: 1;
+        background: #3cd80d;
+        border: 0;
+        min-width: 200px;
+        font-size: 32px;
+        padding: 40px;
+    }
+  }
+}

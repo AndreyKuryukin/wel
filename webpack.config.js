@@ -20,6 +20,10 @@ module.exports = {
         test: /\.scss$/, 
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'fast-sass-loader']
       },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
+      }
     ]
   },
   devtool: 'source-map',
@@ -29,6 +33,10 @@ module.exports = {
       {
         from: path.join(__dirname, '/src/static/index.html'),
       },
+      {
+        from: path.join(__dirname, '/src/static/sounds/*.mp3'),
+        to: 'sounds/[name].[ext]'
+      }
     ]),
   ],
 };

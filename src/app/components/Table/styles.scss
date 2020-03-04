@@ -1,0 +1,32 @@
+.game-table {
+  width: 25%;
+  background: rgb(32, 32, 32);
+  .score {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    > * {
+      background: #fff;
+      color: rgb(148, 139, 228);
+      font-size: 100px;
+      width: 100px;
+      text-align: center;
+      &:not(:first-child) {
+        background: rgb(148, 139, 228);
+        color: #fff;
+      }
+    }
+  }
+  .timer {
+    color: white;
+    font-size: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 24px;
+    .left-label {
+        font-size: 32px;
+    }
+  }
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js -c webpack.config.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js -c webpack.config.js"
+    "build": "node ./node_modules/webpack/bin/webpack.js -c webpack.config.js",
+    "game": "node ./srv/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,9 +18,11 @@
     "@babel/preset-react": "^7.8.3",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
+    "express": "^4.17.1",
     "fast-sass-loader": "^1.5.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
@@ -27,7 +30,9 @@
   "dependencies": {
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
+    "lodash": "^4.17.15",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
   }
 }

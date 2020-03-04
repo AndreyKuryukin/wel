@@ -1,45 +1,35 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import PopoverOverlay from './components/PopupOverlay';
-import ContentItem from './components/PopupOverlay/ContentItem';
+import GameField from './components/GameField';
+import ControlPad from './components/ControlPad';
+import Connector from './components/Connector';
+import Table from './components/Table';
 
-import LessonPriorityRanking from './components/LessonPriorityRanking';
+import {
+    HashRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import './styles.scss';
 
-function RenderPopover() {
-    return <PopoverOverlay title="Welcome to your Adaptive Practice Assessment">
-        <ContentItem title="Why should I take this kind of assessment 1 ?">
-            <p/>The Adaptive Practice Assessment is meant to provide you with a gauge of your ability level on a short set of material that you’ve studied.
-            <p/>Allowing the assessment to gauge how much you’ve retained after studying a set of material will help you to identify where you might need to focus more and other areas where review is necessary, but maybe not your top priority. 
-            <p/>As you go through your test prep journey with us you’ll experience the adaptive practice assessment along side the lesson and post assessment. The adaptive practice adds another assessment designed to cement what you’ve studied into your long-term memory.
-        </ContentItem>
-        
-        <ContentItem title="Why should I take this kind of assessment 2 ?">
-            <p/>The Adaptive Practice Assessment is meant to provide you with a gauge of your ability level on a short set of material that you’ve studied.
-            <p/>Allowing the assessment to gauge how much you’ve retained after studying a set of material will help you to identify where you might need to focus more and other areas where review is necessary, but maybe not your top priority. 
-        </ContentItem>
-        
-        <ContentItem title="Why should I take this kind of assessment 3 ?">
-            <p/>The Adaptive Practice Assessment is meant to provide you with a gauge of your ability level on a short set of material that you’ve studied.
-        </ContentItem>
-    </PopoverOverlay>
+function Routes() {
+    return <Router hashType="slash">
+        <Switch>
+            <Connector>
+                <Route path="/" exact={true}>
+                    <GameField />
+                    <Table />
+                </Route>
+                <Route path="/control">
+                    <ControlPad />
+                </Route>
+                <Route path="/button" >
+                    <GameField button/>
+                </Route>
+            </Connector>
+        </Switch>
+    </Router>
 }
 
-function RenderLessonRankings() {
-    const lessons = [
-        {
-            name: 'Consolidated Financial Statements',
-            priority: 'high',
-        },
-        {
-            name: ' International Financial Reporting Standards (IFRS)',
-            priority: 'medium',
-        },
-        {
-            name: 'Financial Accounting Standards Board (FASB)',
-            priority: 'low',
-        }
-    ];
-    return <LessonPriorityRanking lessons={lessons}/>
-}
-
-ReactDOM.render(<RenderLessonRankings />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
