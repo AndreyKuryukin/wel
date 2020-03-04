@@ -81,6 +81,7 @@ class ControlPad extends React.PureComponent {
                 <button onClick={this.playIncorrect}>Не правильно!</button>
                 <button onClick={() => this.playSound('correct_2')}>Правильно 2!</button>
                 <button onClick={() => this.playSound('zero')}>ZERO</button>
+                <button onClick={() => this.playSound('gameover')}>Game Over</button>
             </div>
             <div className="score-control">
                 <input
