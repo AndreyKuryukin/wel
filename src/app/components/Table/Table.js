@@ -37,6 +37,7 @@ class Table extends React.PureComponent {
             }
             case 0: {
                 Player.play('stop');
+                this.setState({ timer: false });
             }
         }
         this.timer = setTimeout(() => {
