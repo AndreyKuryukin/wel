@@ -123,3 +123,17 @@ $sector: #{(90 - (360 / $elements))}deg;
     border-right: 35px solid $arrow-color;
   }
 }
+
+
+.video-player {
+  position: absolute;
+    margin: auto;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000bb;
+    
+}

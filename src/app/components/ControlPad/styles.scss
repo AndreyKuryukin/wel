@@ -48,4 +48,18 @@
         padding: 40px;
     }
   }
+  .video-control {
+    display: flex;
+    & > button {
+      color: #fff;
+      height: 120px;
+      margin: 24px;
+      flex: 1;
+      background: hsl(194, 89%, 45%);
+      border: 0;
+      min-width: 200px;
+      font-size: 32px;
+      padding: 40px;
+  }
+  }
 }

@@ -37,6 +37,15 @@ class GameField extends React.PureComponent {
                     this.setState({sound: null});
                 }              
             }
+            const video = _.get(this.props.receive, 'video');
+            if (video && !this.props.button) {
+                if (video === this.state.video) {
+                    this.setState({video: null});  
+                } else {
+                    this.setState({video});  
+                }
+                            
+            }
         }
     }
    
@@ -91,20 +100,27 @@ class GameField extends React.PureComponent {
     }
 
     render() {
-        return <div className='game-field'>
-            <div className='game-circle'
-                onClick={() => {
-                    if (!this.clicked) {
-                        this.clicked = true;
-                    } else {
-                        this.startRotate()
-                    }
-                }}
-            >
-                {this.renderSectors()}
+        return <React.Fragment>
+                <div className='game-field'>
+                <div className='game-circle'
+                    onClick={() => {
+                        if (!this.clicked) {
+                            this.clicked = true;
+                        } else {
+                            this.startRotate()
+                        }
+                    }}
+                >
+                    {this.renderSectors()}
+                </div>
+                <div className="arrow" style={{ transform: `rotate(${this.state.position}deg)` }}></div>
             </div>
-            <div className="arrow" style={{ transform: `rotate(${this.state.position}deg)` }}></div>
-        </div>
+            {this.state.video && <div className="video-player">
+                <video height="800" width="1200" autoPlay controls onEnded={() => this.setState({video: null})}>
+                    <source src="video/bb.mp4" type="video/mp4"></source>
+                </video>
+                </div>}   
+        </React.Fragment>
     }
 }
 

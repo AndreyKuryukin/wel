@@ -51,6 +51,10 @@ class ControlPad extends React.PureComponent {
         this.props.send && this.props.send({ sound });
     }
 
+    playVideo = (video) => {
+        this.props.send && this.props.send({ video });
+    }
+
     playStartTimer = () => {
         this.props.send && this.props.send({ timer: 'start' });
     }
@@ -95,6 +99,9 @@ class ControlPad extends React.PureComponent {
                     onChange={(e) => this.changePlayersScore(Number(e.target.value))}
                 />
                 <button onClick={() => this.commitScore()}>COMMIT</button>
+            </div>
+            <div className="video-control">
+                <button onClick={() => this.playVideo('bb')}>Video</button>
             </div>
         </div>
     }

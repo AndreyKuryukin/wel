@@ -36,6 +36,10 @@ module.exports = {
       {
         from: path.join(__dirname, '/src/static/sounds/*.mp3'),
         to: 'sounds/[name].[ext]'
+      },
+      {
+        from: path.join(__dirname, '/src/static/video/*.mp4'),
+        to: 'video/[name].[ext]'
       }
     ]),
   ],
