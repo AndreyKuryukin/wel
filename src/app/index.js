@@ -1,4 +1,11 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>Hello world</div>, document.getElementById('root'));
+const Comp = (props) => {
+    return <div>
+        <span>Hello</span>
+        <h2>{props.word}</h2>
+    </div>
+};
+
+ReactDOM.render(<Comp word="World"/>, document.getElementById('root'));
