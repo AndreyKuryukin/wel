@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Comp = (props) => {
-    return <div>
-        <span>Hello</span>
-        <h2>{props.word}</h2>
-    </div>
-};
+import PredictedScores from './chart';
 
-ReactDOM.render(<Comp word="World"/>, document.getElementById('root'));
+const topicsScores = [
+    {
+        name: 'Topic name 1',
+        range: [10, 20],
+        completion: 60
+    },
+    {
+        name: 'Topic name 2',
+        range: [50, 60],
+        completion: 80
+    },
+    {
+        name: 'Topic name 3',
+        range: [30, 50],
+        completion: 70
+    },
+];
+
+ReactDOM.render(<PredictedScores scores={topicsScores}/>, document.getElementById('root'));

@@ -1,0 +1,100 @@
+$chart-height: 140px;
+$y-axis-height: 60px;
+
+.knewton-topics {
+  display: flex;
+
+  .chart-axis-y {
+    justify-content: center;
+    transform: rotate(180deg);
+    width: 20px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #aaaaaa;
+    align-items: center;
+
+    margin-top: $chart-height / 2 - $y-axis-height / 2;
+
+    &:after {
+      content: attr(max);
+      transform: rotate(90deg);
+      display: block;
+    }
+  }
+
+  .topics-container {
+    display: flex;
+
+    .topic-score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .topic-chart {
+        height: $chart-height;
+        display: flex;
+        padding-bottom: 16px;
+        border-bottom: 3px solid #E8E7E7;
+
+        .completion-bar {
+          height: 100%;
+          width: 18px;
+          margin: 0 16px;
+          display: flex;
+          flex-direction: column;
+
+          .completion-label {
+            background-color: #fff;
+            height: 18px;
+            font-size: 12px;
+          }
+
+          .bar {
+            background: #E8E7E7;
+            height: 100%;
+            flex-direction: column-reverse;
+            display: flex;
+          }
+        }
+
+        .score-bar {
+          width: 38px;
+          margin: 0 16px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 12px;
+            background-color: #fff;
+            height: 18px;
+            font-weight: bold;
+            color: #007EA8;
+          }
+
+          .score {
+            height: 100%;
+            background: #E8E7E7;
+            display: flex;
+            flex-direction: column-reverse;
+
+            .score-indicator {
+              background: #007EA8;
+              box-shadow: 0 3px 2px #0000001D;
+              border-radius: 2px;
+            }
+          }
+        }
+      }
+
+      .topic-name {
+        color: #282828;
+        font-size: 12px;
+        padding: 8px
+      }
+    }
+  }
+}
