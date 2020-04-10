@@ -1,3 +1,6 @@
 node_modules
 dist
 .vscode
+/.idea/
+/learn-react.iml
+/package-lock.json
