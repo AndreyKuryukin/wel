@@ -1,0 +1,12 @@
+@function higher($height) {
+  @return $height + 100px;
+}
+
+$var-color: #ff0000;
+
+@mixin common {
+  color: #ffffff;
+  background: url('./fashion.png');
+  height: higher(100px);
+  width: 100px;
+}

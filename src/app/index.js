@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import PredictedScores from './chart';
+// import PredictedScores from './chart';
+import Example from './example';
 
 const topicsScores = [
     {
@@ -21,4 +22,4 @@ const topicsScores = [
     },
 ];
 
-ReactDOM.render(<PredictedScores scores={topicsScores}/>, document.getElementById('root'));
+ReactDOM.render(<Example text="sdf"/>, document.getElementById('root'));
