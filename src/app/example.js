@@ -2,15 +2,53 @@ import React from "react";
 import styles from './example.scss';
 import classnames from 'classnames';
 
-function shouldAdd (text) {
-    return text.length > 0;
+//  HOME WORK
+// Use lifecycle methods !!!
+// fetch('/user'); // {id: '', name: ''};
+// fetch('/userInfo'); // {tel, address};
+//
+// render() {
+//     const user = this.state.user;
+//     return <div>
+//         <span>Name: {`${user.name}`}</span>
+//         <span>Tel. :{`${user.tel}`}</span>
+//         <span>Address: {`${user.name}`}</span>
+//     </div>
+// }
+
+class Example extends React.Component {
+
+    constructor() {
+        super();
+
+
+        this.initPromise()
+            .then(result => `${result}-PROCCESSED`)
+            .then(this.processPromise)
+            .then(console.log)
+            .catch((e) => {
+
+            })
+        this.state = {};
+    }
+
+    initPromise() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('RESOLVED');
+            }, 5000);
+        });
+    }
+
+
+    render() {
+        const {result} = this.state
+        console.log('Render');
+        return <div>
+            <span>{result}</span>
+        </div>
+    }
+
 }
 
-export default function Example(props) {
-    return <div className={classnames({
-        [styles.example]: shouldAdd(props.text)
-    })}>
-        Parents
-        <span className="child">Child</span>
-    </div>
-}
+export default Example;

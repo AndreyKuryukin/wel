@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 // import PredictedScores from './chart';
 import Example from './example';
 
+
 const topicsScores = [
     {
         name: 'Topic name 1',
