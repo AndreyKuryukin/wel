@@ -26,14 +26,7 @@ const topics = [
 
 class Range extends React.Component {
   render() {
-    const range = this.props.range;
-    const bottom_start = 140 * range[0] / 100;
-    return <div className="range_container">
-      <span className="percentage">{range[0]}-{range[1]}</span>
-      <div className="range_bar">
-        <div className="range_fill" style={{bottom: `${range[0]}%`, height: `${range[1] - range[0]}%`}}/>
-      </div>
-    </div>
+    return 'TO BE DONE';
   }
 }
 
