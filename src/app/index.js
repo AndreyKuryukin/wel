@@ -31,7 +31,7 @@ class Range extends React.Component {
     return <div className="range_container">
       <span className="percentage">{range[0]}-{range[1]}</span>
       <div className="range_bar">
-        <div className="range_fill" style={{bottom: `${bottom_start}px`, height: `${range[1] - range[0]}%`}}/>
+        <div className="range_fill" style={{bottom: `${range[0]}%`, height: `${range[1] - range[0]}%`}}/>
       </div>
     </div>
   }

@@ -22,6 +22,8 @@ module.exports = {
     new CopyPlugin([
       {
         from: path.join(__dirname, '/src/static/index.html'),
+      },
+      {
         from: path.join(__dirname, '/src/static/index.css'),
       },
     ]),
