@@ -21,7 +21,6 @@ class Example extends React.Component {
     constructor() {
         super();
 
-
         this.initPromise()
             .then(result => `${result}-PROCCESSED`)
             .then(this.processPromise)
