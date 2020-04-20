@@ -1,6 +1,4 @@
 import React from "react";
-import styles from './example.scss';
-import classnames from 'classnames';
 
 //  HOME WORK
 // Use lifecycle methods !!!
@@ -20,34 +18,23 @@ class Example extends React.Component {
 
     constructor() {
         super();
-
-        this.initPromise()
-            .then(result => `${result}-PROCCESSED`)
-            .then(this.processPromise)
-            .then(console.log)
-            .catch((e) => {
-
-            })
         this.state = {};
+        this.initPromise('user').then(body => this.setState({name: body.name}));
+        this.initPromise('userInfo').then(body => this.setState({tel: body.tel, address: body.address}));
     }
 
-    initPromise() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve('RESOLVED');
-            }, 5000);
-        });
+    initPromise(url) {
+        return fetch(`/${url}`)
+            .then(data => data.json())
     }
-
 
     render() {
-        const {result} = this.state
-        console.log('Render');
         return <div>
-            <span>{result}</span>
+            <div>User Name: {this.state.name}</div>
+            <div>User Tel: {this.state.tel}</div>
+            <div>User Address: {this.state.address}</div>
         </div>
     }
-
 }
 
 export default Example;
