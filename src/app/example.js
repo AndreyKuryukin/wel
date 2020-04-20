@@ -19,13 +19,31 @@ class Example extends React.Component {
     constructor() {
         super();
         this.state = {};
-        this.initPromise('user').then(body => this.setState({name: body.name}));
-        this.initPromise('userInfo').then(body => this.setState({tel: body.tel, address: body.address}));
+        Promise.all([
+            this.getUser('user'),
+            this.getUserInfo('userInfo')
+        ]).then(([body1, body2]) => this.setState({...body1, ...body2}));
     }
 
-    initPromise(url) {
+    getUser(url) {
         return fetch(`/${url}`)
             .then(data => data.json())
+            .then(body => {
+                this.setState(body)
+                return body;
+            })
+    }
+
+    getUserInfo(url) {
+        return fetch(`/${url}`)
+            .then(data => data.json())
+            .then((body) => {
+               return new Promise((resolve) => {
+                   setTimeout(() => {
+                       resolve(body);
+                   }, 5000)
+               });
+            })
     }
 
     render() {
