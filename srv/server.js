@@ -13,11 +13,16 @@ const UserInfo = {
 const requestHandler = (request, response) => {
     switch (request.url) {
         case '/user': {
-            response.end(JSON.stringify(User));
+            setTimeout(() => response.end(JSON.stringify(User)), 2000);
             break;
         }
         case '/userInfo': {
-            response.end(JSON.stringify(UserInfo));
+            setTimeout(() => response.end(JSON.stringify(UserInfo)), 4000);
+            break;
+        }
+        case '/userStatus': {
+            const status = Math.random() < 0.5 ? 'OK' : 'NOK';
+            setTimeout(() => response.end(JSON.stringify({status})), 6000);
             break;
         }
     }
