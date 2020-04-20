@@ -17,6 +17,7 @@ module.exports = {
         proxy: {
             '/user': 'http://localhost:8081',
             '/userInfo': 'http://localhost:8081',
+            '/userStatus': 'http://localhost:8081',
         }
     },
     module: {
