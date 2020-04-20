@@ -13,6 +13,7 @@ const UserInfo = {
 const requestHandler = (request, response) => {
     switch (request.url) {
         case '/user': {
+            // Why there is a need in arrow function to get result from 'response.end(JSON.stringify(User))'?
             setTimeout(() => response.end(JSON.stringify(User)), 2000);
             break;
         }
