@@ -26,7 +26,17 @@ const topics = [
 
 class Range extends React.Component {
   render() {
-    return 'TO BE DONE';
+    const range = this.props.range;
+    const [minRange, maxRange] = range;
+    const height = maxRange - minRange;
+    return <div className="range_container">
+      <span className="range">{minRange}-{maxRange}</span>
+      <div className="range_bar" style={{width: `38px`}}>
+        <div className="range_fill" style={
+          {height: `${height}%`, background: `#007EA8`, marginBottom: `${minRange}%`, marginTop: `${maxRange}%`,}
+        }/>
+      </div>
+    </div>
   }
 }
 
