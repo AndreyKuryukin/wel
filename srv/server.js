@@ -3,12 +3,19 @@ const http = require('http')
 const port = 8081;
 
 const User = {
-    name: 'Ivan Ivanovich Ivanov'
+    name: 'Ivan Ivanovich Ivanov',
+    infoId: 1
 };
-const UserInfo = {
+
+const UserInfo = [{
+    id: 1,
     tel: '89998887766',
     address: '123456, Russia, Nizhegorodskaya obl, Nizhniy Novgorod, Varvarskaya 40'
-};
+}, {
+    id: 2,
+    tel: '74658734685',
+    address: '345344, Russia, Nizhegorodskaya obl, Nizhniy Novgorod, Gagarina 40'
+}];
 
 const requestHandler = (request, response) => {
     switch (request.url) {
@@ -17,8 +24,10 @@ const requestHandler = (request, response) => {
             setTimeout(() => response.end(JSON.stringify(User)), 2000);
             break;
         }
-        case '/userInfo': {
-            setTimeout(() => response.end(JSON.stringify(UserInfo)), 4000);
+        case '/userInfo?infoId=1': {
+            const infoId = 1;
+            const resBody = UserInfo.find(info => info.id === infoId)
+            setTimeout(() => response.end(JSON.stringify(resBody)), 4000);
             break;
         }
         case '/userStatus': {
